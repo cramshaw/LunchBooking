@@ -79,6 +79,15 @@ const generateMeals = (res) => {
 
       const chosenMeals = filterMealData(filteredMealData, preferences);
 
+      // chosenMeals.map(() =>{
+      //   res.locals.connection.query(`
+      //     INSERT into chef_selected_meals (meal_id) VALUES (${})
+      //     `, (error, results, fields) => {
+
+      //     if (error) throw error;
+      //   })
+      // })
+
       res.json({"status": 200, "error": null, "response": chosenMeals});
 
     })

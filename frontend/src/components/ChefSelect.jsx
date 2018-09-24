@@ -39,16 +39,15 @@ class ChefSelect extends React.Component {
   }
 
   generateMeals = () => {
-    fetch(`${process.env.REACT_APP_API_URL}generate_meal`)
+    fetch(`${process.env.REACT_APP_API_URL}generate_meals`)
       .then(res => res.json())
-      .then(data => this.setState(() => ({ users: data.response }) ) );
-    console.log('generating meals')
+      .then(data => this.setState(() => ({ meals: data.response }) ) );
   }
 
   currentMeals = () => {
     fetch(`${process.env.REACT_APP_API_URL}chef_meals`)
       .then(res => res.json())
-      .then(data => this.setState(() => ({ users: data.response }) ) );
+      .then(data => this.setState(() => ({ meals: data.response }) ) );
   }
 
   render() {

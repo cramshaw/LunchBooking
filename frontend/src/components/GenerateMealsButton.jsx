@@ -5,9 +5,13 @@ import Button from '@material-ui/core/Button';
 function GenerateMealsButton(props) {
 
   return (
-    <Button fullWidth variant="contained" color="secondary"
+    <Button
+        fullWidth
+        variant="contained"
+        color="secondary"
+        onClick={props.generateMeals}
     >
-    Suggest Meal Options
+        Suggest Meal Options
     </Button>
   )
 }
