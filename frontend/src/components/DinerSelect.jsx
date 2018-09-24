@@ -35,7 +35,7 @@ class DinerSelect extends React.Component {
     this.setState( (state) => {
       return {
         users: state.users.map( user =>
-          user.id === userId ? {...user, food_preferences: `${user.food_preferences},${foodCategory}`}
+          user.id === userId ? {...user, food_preferences: [...user.food_preferences, foodCategory]}
           : user
         )
       }
@@ -60,6 +60,19 @@ class DinerSelect extends React.Component {
   }
 
   removeUserPreference = (userId, foodCategory) => {
+    this.setState( (state) => {
+      return {
+        users: state.users.map( user => {
+          return user.id === userId ? {
+            ...user,
+            food_preferences:
+              [...user.food_preferences.slice(0, user.food_preferences.indexOf(foodCategory) ),
+              ...user.food_preferences.slice(user.food_preferences.indexOf(foodCategory) + 1 )]
+          }
+          : user
+        })
+      }
+    })
     fetch(`http://localhost:4000/api/diner_preferences/${userId}/preference/${foodCategory}`, {
         method: "DELETE",
         headers: {

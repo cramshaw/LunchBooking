@@ -40,7 +40,13 @@ app.get('/api/diners', (req, res) => {
   GROUP BY users.id
   `, function (error, results, fields) {
       if (error) throw error;
-      res.json({"status": 200, "error": null, "response": results});
+      const responseData = results.map( (val) => {
+        return {
+          ...val,
+          food_preferences: val.food_preferences ? val.food_preferences.split(',') : []
+        }
+      })
+      res.json({"status": 200, "error": null, "response": responseData});
   });
 })
 

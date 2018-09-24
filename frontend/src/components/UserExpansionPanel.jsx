@@ -27,7 +27,7 @@ class UserExpansionPanel extends React.Component {
           <FoodCategoryCheckboxes
             foodCategories={foodCategories}
             userId={user.id}
-            preferences={user.food_preferences ? user.food_preferences.split(',') : []}
+            preferences={user.food_preferences}
             handleChange={this.handleChange}
           />
           </ExpansionPanelDetails>
