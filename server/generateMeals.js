@@ -51,6 +51,9 @@ const generateMeals = (res) => {
         }, false)
       })
 
+      // Recursively iterate over list, incrementing to try all combos. Once
+      // a combo returns the below func as valid, go ahead and set it
+      // in the table and return to the user
       const valid = checkRequirements(preferences, filteredMealData)
 
       res.json({"status": 200, "error": null, "response": filteredMealData});

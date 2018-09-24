@@ -2,6 +2,7 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import UserExpansionPanel from './UserExpansionPanel';
 
@@ -93,7 +94,11 @@ class DinerSelect extends React.Component {
         <Paper>
           <Typography variant="title">Select your dietary requirements:</Typography>
         </Paper>
-        { users && users.map(user => {
+        { !users.length && (
+            <CircularProgress size={50} />
+          )
+        }
+        { users.map(user => {
           return (
             <UserExpansionPanel
               key={user.id}
