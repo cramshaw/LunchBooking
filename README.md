@@ -16,3 +16,5 @@ and then runghit
 to populate the database.
 
 It should be possible to `cd` into frontend and server. In there run `yarn` to install all packages and then `yarn start` to start both applications. You will need to set up and create a MySQL database and change the connection settings in `server/index.js` before loading the sql dump as above.
+
+Once the application is running, visit http://localhost:3000 in your browser.
